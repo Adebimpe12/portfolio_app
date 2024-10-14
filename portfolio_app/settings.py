@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
-import dj_database_url
-from decouple import config
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -30,10 +28,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'your_default_secret_key')  # provide a default for local dev
-DEBUG = os.getenv('DEBUG', 'False').lower() in ['true', '1', 't']  # Convert to boolean
+DEBUG = os.getenv('DEBUG', 'False')
 
 
-ALLOWED_HOSTS = ['your-app.onrender.com', 'your-custom-domain.com']
+# settings.py
+
+# Retrieve the keys from environment variables
+FLW_PUBLIC_KEY = os.getenv('FLW_PUBLIC_KEY')
+FLW_SECRET_KEY = os.getenv('FLW_SECRET_KEY')
+
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://adebimpe12.github.io/portfolio_app/', 'your-app.onrender.com']
 
 
 # Application definition
@@ -84,11 +89,13 @@ WSGI_APPLICATION = "portfolio_app.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-        'default': dj_database_url.config(
-        default='postgres://user:password@localhost:5432/yourdbname')
-        'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+        "ENGINE": "django.db.backends.postgresql",
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT'),       
+        
     }
 }
 
@@ -123,15 +130,26 @@ USE_I18N = True
 
 USE_TZ = True
 
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_RECIPIENT = os.getenv('EMAIL_RECIPIENT')
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+

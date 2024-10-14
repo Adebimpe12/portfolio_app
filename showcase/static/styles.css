@@ -1,0 +1,161 @@
+/* General Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Modern font */
+    background-color: #f0f3f7; /* Light gray background for softness */
+    color: #333; /* Darker text for better readability */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: #7d4c92; /* Deep lavender */
+    color: #fff; /* White text */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+nav a {
+    color: #fff; /* White links */
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+nav a:hover {
+    color: #f1c40f; /* Gold color on hover */
+}
+
+/* Main Styles */
+main {
+    padding: 30px;
+    max-width: 800px;
+    margin: 20px auto; /* Center the main content */
+}
+
+h2 {
+    color: #d05eaf; /* Soft pink */
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+/* Services Section Styles */
+.services {
+    background-color: #ffffff; /* White background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.services h3 {
+    color: #7d4c92; /* Deep lavender */
+    text-align: center; /* Center the subheading */
+}
+
+.services ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0;
+}
+
+.services li {
+    padding: 10px;
+    border-bottom: 1px solid #e5e5e5; /* Light divider */
+    text-align: center; /* Center text */
+}
+
+.services li:last-child {
+    border-bottom: none; /* Remove border for the last item */
+}
+
+/* Portfolio Section Styles */
+.portfolio {
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.portfolio h3 {
+    color: #7d4c92; /* Deep lavender */
+    text-align: center; /* Center the subheading */
+}
+
+.portfolio img {
+    width: 100%; /* Full-width images */
+    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 15px; /* Space below images */
+}
+
+/* Contact Form Styles */
+.contact-form {
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.contact-form h2 {
+    color: #7d4c92; /* Deep lavender */
+    text-align: center; /* Center the heading */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%; /* Full width for inputs */
+    padding: 12px;
+    margin: 10px 0; /* Space between inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Larger text */
+}
+
+.contact-form button {
+    background-color: #d05eaf; /* Soft pink button */
+    color: white; /* White text */
+    border: none;
+    padding: 12px 15px; /* Padding for the button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-weight: bold; /* Bold text */
+    font-size: 16px; /* Larger text */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+.contact-form button:hover {
+    background-color: #b15391; /* Darker pink on hover */
+    transform: scale(1.05); /* Slightly grow button on hover */
+}
+
+/* Message Styles */
+p {
+    margin: 10px 0; /* Space between messages */
+    padding: 10px;
+    background-color: #e7f3fe; /* Light blue background for messages */
+    border-left: 5px solid #2196F3; /* Blue left border */
+    color: #0c5460; /* Dark text for messages */
+    border-radius: 4px; /* Rounded corners */
+    text-align: center; /* Center text */
+}
+
+/* Payment Section */
+.payment-options {
+    margin-top: 20px;
+    text-align: center; /* Center payment options */
+}
+
+.payment-options a {
+    color: #7d4c92; /* Deep lavender link color */
+    font-weight: bold; /* Bold link text */
+    text-decoration: none; /* No underline */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.payment-options a:hover {
+    color: #f1c40f; /* Gold color on hover */
+}
