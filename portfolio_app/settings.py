@@ -10,8 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 import dj_database_url
+from decouple import config
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,10 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-b6&6o1^vl-^s@3ixe6c2fgg8$azox2qi3_alk5^c(6fd7%@w9b"
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+SECRET_KEY = os.getenv('SECRET_KEY', 'your_default_secret_key')  # provide a default for local dev
+DEBUG = os.getenv('DEBUG', 'False').lower() in ['true', '1', 't']  # Convert to boolean
 
 
 ALLOWED_HOSTS = ['your-app.onrender.com', 'your-custom-domain.com']
@@ -82,6 +88,7 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
         'default': dj_database_url.config(
         default='postgres://user:password@localhost:5432/yourdbname')
+        'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
     }
 }
 
